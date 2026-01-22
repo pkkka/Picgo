@@ -1,0 +1,2 @@
+# Picgo
+typore图床
