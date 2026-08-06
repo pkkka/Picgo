@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="260" viewBox="0 0 1080 260" role="img" aria-labelledby="title desc">
+  <title id="title">GNSS 定位数据上报流程</title>
+  <desc id="desc">从 UART 接收字节到定位、ASCII 或协议错误消息发布的流程</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .bg { fill: #f7f9fb; }
+      .box { fill: #ffffff; stroke-width: 2; rx: 14; }
+      .line { stroke: #64748b; stroke-width: 2; marker-end: url(#arrow); }
+      .h { font: 600 16px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #172033; text-anchor: middle; }
+      .t { font: 13px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #475569; text-anchor: middle; }
+      .cap { font: 600 18px "Microsoft YaHei", "Noto Sans CJK SC", Arial, sans-serif; fill: #172033; }
+    </style>
+  </defs>
+  <rect class="bg" width="1080" height="260" rx="18"/>
+  <text class="cap" x="40" y="42">GNSS 定位与状态数据上报</text>
+  <line class="line" x1="210" y1="137" x2="250" y2="137"/>
+  <line class="line" x1="410" y1="137" x2="450" y2="137"/>
+  <line class="line" x1="610" y1="137" x2="650" y2="137"/>
+  <line class="line" x1="810" y1="137" x2="850" y2="137"/>
+  <rect class="box" x="42" y="88" width="168" height="98" stroke="#2563eb"/>
+  <text class="h" x="126" y="124">UART 接收回调</text>
+  <text class="t" x="126" y="150">逐字节接收</text>
+  <text class="t" x="126" y="170">创建中断事件</text>
+  <rect class="box" x="250" y="88" width="160" height="98" stroke="#0891b2"/>
+  <text class="h" x="330" y="124">环形缓冲排队</text>
+  <text class="t" x="330" y="150">容量 2048 字节</text>
+  <text class="t" x="330" y="170">满时丢弃后续数据</text>
+  <rect class="box" x="450" y="88" width="160" height="98" stroke="#7c3aed"/>
+  <text class="h" x="530" y="124">帧校验与拆字段</text>
+  <text class="t" x="530" y="150">起止、格式、校验和</text>
+  <text class="t" x="530" y="170">长度与字段数</text>
+  <rect class="box" x="650" y="88" width="160" height="98" stroke="#d97706"/>
+  <text class="h" x="730" y="124">识别语句类型</text>
+  <text class="t" x="730" y="150">命令响应、RMC</text>
+  <text class="t" x="730" y="170">GGA、PVT 或其他</text>
+  <rect class="box" x="850" y="88" width="188" height="98" stroke="#059669"/>
+  <text class="h" x="944" y="118">发布 OSAL 消息</text>
+  <text class="t" x="944" y="144">定位 / ASCII / 命令</text>
+  <text class="t" x="944" y="166">协议错误</text>
+</svg>
+
